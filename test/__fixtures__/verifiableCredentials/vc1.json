@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    {
+      "@vocab": "https://vc.example"
+    },
+    "https://w3id.org/vc-revocation-list-2020/v1"
+  ],
+  "type": ["VerifiableCredential"],
+  "name": "Example Verifiable Credential",
+  "description": "A test verifiable credential.",
+  "relatedLink": [
+    {
+      "type": "LinkRole",
+      "target": "http://localhost:8080/templates/be29f507-8cac-45b4-98b3-bcf995c8acdc",
+      "linkRelationship": "template",
+      "name": "Template"
+    },
+    {
+      "type": "LinkRole",
+      "target": "http://localhost:8080/batches/8ea11eff-5422-4664-8a08-b1908f0800dd",
+      "linkRelationship": "batch",
+      "name": "Batch"
+    },
+    {
+      "type": "LinkRole",
+      "target": "did:photon:EiB0mhMJDpAAE6aM-pdv1QvxlzMUKiX4MkUaUz0RF1O4Ww",
+      "linkRelationship": "anchoredHashLink",
+      "name": "Anchor"
+    }
+  ],
+  "credentialSubject": {
+    "id": "did:example:123",
+    "name": "Subject Name Bob"
+  },
+  "credentialStatus": {
+    "id": "http://localhost:8080/credentials/ca7c0581-a9e6-4d92-a2e0-0828fbedfd2b#2",
+    "type": "RevocationList2020Status",
+    "revocationListIndex": 2,
+    "revocationListCredential": "http://localhost:8080/credentials/ca7c0581-a9e6-4d92-a2e0-0828fbedfd2b"
+  },
+  "id": "http://localhost:8080/credentials/518e377a-1a21-440f-867f-636dcd9a5cc6",
+  "issuer": {
+    "id": "did:key:z6Mkr26axNGSYVB1CPg4L3wm9mqe6FHXVhQjuigBubqwh5LJ",
+    "name": "Issuer Name Alice"
+  },
+  "issuanceDate": "2021-10-14T12:30:37-05:00",
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2021-10-14T17:33:00Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..hdC2x54drupJhsSHP95c6jogm9JrJeDKiEkcB3_ycHb5CnZOnOa6hnZogySVEotTIWQc4PVu4inpOpqFqZsMAQ",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6Mkr26axNGSYVB1CPg4L3wm9mqe6FHXVhQjuigBubqwh5LJ#z6Mkr26axNGSYVB1CPg4L3wm9mqe6FHXVhQjuigBubqwh5LJ"
+  }
+}

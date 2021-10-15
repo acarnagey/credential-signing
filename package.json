@@ -1,0 +1,30 @@
+{
+  "name": "credential-signing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acarnagey/credential-signing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acarnagey/credential-signing/issues"
+  },
+  "homepage": "https://github.com/acarnagey/credential-signing#readme",
+  "devDependencies": {
+    "jest": "^25.5.4"
+  },
+  "dependencies": {
+    "@digitalbazaar/ed25519-signature-2018": "^2.0.1",
+    "@digitalbazaar/ed25519-verification-key-2018": "^3.1.1",
+    "@digitalbazaar/vc": "^1.0.0",
+    "@transmute/credentials-context": "^0.7.0-unstable.8",
+    "@transmute/ed25519-signature-2018": "^0.7.0-unstable.1",
+    "@transmute/vc.js": "^0.7.0-unstable.8"
+  }
+}
