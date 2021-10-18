@@ -34,8 +34,6 @@ const credential = {
     suite,
     documentLoader,
   });
-  // console.log(JSON.stringify(result, null, 2));
-
   if (result.verified) {
     fs.writeFileSync(
       "./digitalbazaar-vc.json",

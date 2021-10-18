@@ -30,15 +30,16 @@ const credential = {
     documentLoader,
   });
   // Verification is broken in transmute libraries
-  // const result2 = await vcjs.verifiable.credential.verify({
-  //   credential: result.items[0],
-  //   format: ["vc"],
-  //   documentLoader,
-  //   suite: [new Ed25519Signature2018()],
-  // });
-  // console.log(JSON.stringify(result2, null, 2));
-  fs.writeFileSync(
-    "./transmute-vc.json",
-    JSON.stringify(result.items[0], null, 2)
-  );
+  const result2 = await vcjs.verifiable.credential.verify({
+    credential: result.items[0],
+    format: ["vc"],
+    documentLoader,
+    suite: [new Ed25519Signature2018()],
+  });
+  if(result2.verified) {
+    fs.writeFileSync(
+      "./transmute-vc.json",
+      JSON.stringify(result.items[0], null, 2)
+    );
+  }
 })();

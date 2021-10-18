@@ -1,10 +1,8 @@
 const fs = require("fs");
 const {
-  Ed25519VerificationKey2018,
-} = require("@digitalbazaar/ed25519-verification-key-2018");
-const {
   Ed25519Signature2018,
-} = require("@digitalbazaar/ed25519-signature-2018");
+  Ed25519VerificationKey2018
+} = require("@transmute/ed25519-signature-2018");
 
 const documentLoader = require("./test/__fixtures__/documentLoader");
 const rawKeyJson = require("./test/__fixtures__/keys/key.json");
@@ -20,7 +18,7 @@ const credential = {
 };
 
 (async () => {
-  const keyPair = new Ed25519VerificationKey2018(rawKeyJson);
+  const keyPair = await Ed25519VerificationKey2018.from(rawKeyJson);
   const suite = new Ed25519Signature2018({
     key: keyPair,
     date: credential.issuanceDate,
@@ -41,7 +39,6 @@ const credential = {
     // expansionMap,
     compactProof: false,
   });
-
   const result = await suite.verifyProof({
     proof,
     document: credential,
@@ -61,7 +58,7 @@ const credential = {
   });
   if (result.verified) {
     fs.writeFileSync(
-      "./digitalbazaar-proof-fixture.json",
+      "./transmute-proof-fixture.json",
       JSON.stringify(proof, null, 2)
     );
   }
