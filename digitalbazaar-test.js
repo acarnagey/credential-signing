@@ -7,19 +7,13 @@ const {
   Ed25519Signature2018,
 } = require("@digitalbazaar/ed25519-signature-2018");
 const vc = require("@digitalbazaar/vc");
+const vc2 = require("./test/__fixtures__/vcs/mavennet-vc.json");
 
 const documentLoader = require("./test/__fixtures__/documentLoader");
 const rawKeyJson = require("./test/__fixtures__/keys/key.json");
-const credential = {
-  "@context": ["https://www.w3.org/2018/credentials/v1"],
-  id: "https://example.com/credentials/1872",
-  type: ["VerifiableCredential"],
-  issuer: rawKeyJson.controller,
-  issuanceDate: "2010-01-01T19:23:24Z",
-  credentialSubject: {
-    id: "did:example:ebfeb1f712ebc6f1c276e12ec21",
-  },
-};
+const credential = vc2;
+delete credential.proof;
+credential.issuer = rawKeyJson.controller;
 
 (async () => {
   const keyPair = new Ed25519VerificationKey2018(rawKeyJson);
@@ -28,7 +22,8 @@ const credential = {
     date: credential.issuanceDate,
   });
 
-  const signedVC = await vc.issue({ credential, suite });
+  const signedVC = await vc.issue({ credential, suite, documentLoader });
+  // console.log(JSON.stringify(signedVC, null, 2));
   const result = await vc.verifyCredential({
     credential: signedVC,
     suite,
@@ -40,4 +35,16 @@ const credential = {
       JSON.stringify(signedVC, null, 2)
     );
   }
+
+  
+  // const suite2 = new Ed25519Signature2018({
+  //   key: keyPair,
+  //   date: vc2.issuanceDate,
+  // });
+  // const result2 = await vc.verifyCredential({
+  //   credential: vc2,
+  //   suite: suite2,
+  //   documentLoader,
+  // });
+  console.log(JSON.stringify(result, null, 2));
 })();

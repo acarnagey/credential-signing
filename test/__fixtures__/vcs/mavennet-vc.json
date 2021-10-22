@@ -159,13 +159,15 @@
     }
   },
   "id": "http://localhost:8080/credentials/61858f5a-682a-4857-b759-f3487bae0658",
-  "issuer": "did:key:z6MktWjP95fMqCMrfNULcdszFeTVUCE1zcgz3Hv5bVAisHgk",
+  "issuer": {
+    "id": "did:key:z6Mkr26axNGSYVB1CPg4L3wm9mqe6FHXVhQjuigBubqwh5LJ"
+  },
   "issuanceDate": "2021-10-19T14:47:38-05:00",
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2021-10-19T19:47:38Z",
-    "verificationMethod": "did:key:z6MktWjP95fMqCMrfNULcdszFeTVUCE1zcgz3Hv5bVAisHgk#z6MktWjP95fMqCMrfNULcdszFeTVUCE1zcgz3Hv5bVAisHgk",
+    "verificationMethod": "did:key:z6Mkr26axNGSYVB1CPg4L3wm9mqe6FHXVhQjuigBubqwh5LJ#z6Mkr26axNGSYVB1CPg4L3wm9mqe6FHXVhQjuigBubqwh5LJ",
     "proofPurpose": "assertionMethod",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..DA8ly_CNMz0ZhnnASZxucu5aEeZDQMHkB4d-4sKv9cXoInuHM-1Ki1OxQw4uhyot8xzENACX7w5HAH8_KMLTDw"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..B-goMRclQan_1sDKpmLT9hRnfmONlH6u4p0KXcbcP7PERq4YwSVp_3nfPau1jlSUzqPrIVqkUdDUhHn9VwXTDw"
   }
 }
